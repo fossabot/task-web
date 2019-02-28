@@ -1,3 +1,10 @@
-<p>
-  task-list works!
-</p>
+<mat-list>
+  <h3 mat-subheader>Tasks</h3>
+  <mat-list-item *ngFor="let task of tasks | async">
+    <mat-icon mat-list-icon>list_alt</mat-icon>
+    <h4 mat-line>[ {{ task.id }} ] {{ task.title }} </h4>
+    <p mat-line> {{ task.creationDate | date:"yyyy-MM-dd" }} </p>
+    <button mat-raised-button color="warn" (click)="deleteEmployee(task.id)">삭제</button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

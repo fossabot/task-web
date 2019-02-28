@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskListComponent } from './task-list/task-list.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule } from '@angular/material';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule, MatCheckboxModule
+    AppRoutingModule,
+    MatButtonModule, MatCheckboxModule, MatListModule, MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
