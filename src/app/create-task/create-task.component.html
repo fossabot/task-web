@@ -1,3 +1,17 @@
-<p>
-  create-task works!
-</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>New Task</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm.value)" >
+  <div class="create-task-container">
+    <mat-form-field>
+      <input matInput placeholder="Title" required formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Description" required formControlName="description">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>

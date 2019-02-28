@@ -5,4 +5,10 @@ export class Task {
   creationDate: Date;
   startDate: Date;
   endDate: Date;
+
+  constructor(title: string, description: string) {
+    this.title = title;
+    this.description = description;
+    this.creationDate = new Date();
+  }
 }
