@@ -1,17 +1,20 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Tasks</span>
-    <span class="toolbar-spacer"></span>
-    <a mat-raised-button color="accent" routerLink="/add">추가</a>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div class="example-container mat-elevation-z8">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Tasks</span>
+      <span class="toolbar-spacer"></span>
+      <a mat-raised-button color="basic" routerLink="/add">추가</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-<mat-list>
-  <mat-list-item *ngFor="let task of tasks | async">
-    <mat-icon mat-list-icon>note</mat-icon>
-    <h4 mat-line>[ {{ task.id }} ] {{ task.title }} </h4>
-    <p mat-line> {{ task.creationDate | date:"yyyy-MM-dd" }} </p>
-    <button mat-raised-button color="warn" (click)="deleteEmployee(task.id)">삭제</button>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
+  <mat-list>
+    <mat-list-item *ngFor="let task of tasks | async">
+      <mat-icon mat-list-icon>note</mat-icon>
+      <h4 mat-line>[ {{ task.id }} ] {{ task.title }} </h4>
+      <p mat-line> {{ task.creationDate | date:"yyyy-MM-dd" }} </p>
+      <button mat-raised-button color="warn" (click)="deleteEmployee(task.id)">삭제</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
+

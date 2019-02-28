@@ -8,13 +8,13 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatCheckboxModule, MatCommonModule, MatDatepickerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatOptionModule, MatSelectModule, MatToolbarModule
+  MatOptionModule, MatProgressSpinnerModule, MatSelectModule, MatToolbarModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +43,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     MatToolbarModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

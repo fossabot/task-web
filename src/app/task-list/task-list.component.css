@@ -5,3 +5,8 @@
 .toolbar-spacer {
   flex: 1 1 auto;
 }
+
+.example-container {
+  position: relative;
+  padding: 5px;
+}
