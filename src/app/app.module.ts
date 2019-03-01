@@ -18,13 +18,15 @@ import {
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TaskEditComponent } from './task-edit/task-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTaskComponent,
     TaskDetailsComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,
