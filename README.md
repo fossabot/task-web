@@ -599,15 +599,137 @@ export class TaskDetailsComponent implements OnInit {
 - HTML 템플릿 작성
 ```html
 <!-- /src/app/task-edit/task-edit.component.html -->
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" (click)="productDetails()"><mat-icon>backspace</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="taskForm" (ngSubmit)="onFormSubmit(taskForm.value)">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Title" formControlName="title"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!taskForm.get('title').valid && taskForm.get('title').touched">Please enter Product Name</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Description" formControlName="description"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!taskForm.get('description').valid && taskForm.get('description').touched">Please enter Product Description</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!taskForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+      </div>
+    </form>
+  </mat-card>
+</div>
 
 ```
 - Typescript 작성
 ```typescript
 /* /src/app/task-edit/task-edit.component.ts */
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { TaskService } from '../task.service';
+import { Task } from '../task';
+
+@Component({
+  selector: 'app-task-edit',
+  templateUrl: './task-edit.component.html',
+  styleUrls: ['./task-edit.component.css']
+})
+export class TaskEditComponent implements OnInit {
+
+  taskForm: FormGroup;
+  _id: number;
+  isLoadingResults = false;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private formBuilder: FormBuilder,
+              private taskService: TaskService) { }
+
+  ngOnInit() {
+    this.getTask(this.route.snapshot.params['id']);
+    this.taskForm = this.formBuilder.group({
+      'title': [null, Validators.required],
+      'description': [null, Validators.required]
+    })
+  }
+
+  getTask(id: number) {
+    this.isLoadingResults = true;
+    this.taskService.getTask(id).subscribe(response => {
+      console.log(response);
+      this._id = response.id;
+      this.taskForm.setValue({
+        title: response.title,
+        description: response.description
+      });
+      this.isLoadingResults = false;
+    }, error => {
+      console.log(error);
+      this.isLoadingResults = false;
+    })
+  }
+
+  productDetails() {
+    this.router.navigate(['/tasks-detail', this._id]);
+  }
+
+  onFormSubmit(form:NgForm) {
+    this.isLoadingResults = true;
+    let task = new Task(form['title'], form['description']);
+    task.id = this._id;
+    this.taskService.updateTask(task)
+      .subscribe(res => {
+          let id = res['id'];
+          this.isLoadingResults = false;
+          this.router.navigate(['/tasks-detail', id]);
+        }, (err) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        }
+      );
+  }
+}
 
 ```
 - 스타일 추가
 ```css
 /* /src/app/task-edit/task-edit.component.css */
+.example-container {
+  position: relative;
+  padding: 5px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width:nth-last-child(1) {
+  margin-bottom: 10px;
+}
+
+.button-row {
+  margin: 10px 0;
+}
+
+.mat-flat-button {
+  margin: 5px;
+}
 
 ```
