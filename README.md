@@ -733,3 +733,11 @@ export class TaskEditComponent implements OnInit {
 }
 
 ```
+
+
+# Reference
+- https://angular.io
+- https://material.angular.io
+- https://www.youtube.com/channel/UCNweZR_LiXP326Ga6NEkIEA/videos
+- https://www.javaguides.net/2019/02/spring-boot-2-angular-7-crud-example-tutorial.html?m=1
+- https://www.djamware.com/post/5bca67d780aca7466989441f/angular-7-tutorial-building-crud-web-application#ch4
