@@ -20,6 +20,11 @@ npm install -g @angular/cli
 ng new task-web
 ```
 
+- Angular버젼 업데이트
+```bash
+$ ng update @angular/cli @angular/core
+```
+
 - 컴포넌트와 서비스 생성
 ```bash
 ng g s task
@@ -108,21 +113,21 @@ npm install --save @angular/material @angular/cdk @angular/animations
 ```
 
 - 메터리얼 컴포넌트 사용을 위해 `app.module.ts`에 아래 모듈들을 추가
-> BrowserAnimationsModule
-> FormsModule
-> MatButtonModule
-> MatCheckboxModule
-> MatListModule
-> MatIconModule
-> MatCommonModule
-> MatFormFieldModule
-> MatOptionModule
-> MatSelectModule
-> MatInputModule
-> MatToolbarModule
-> MatDatepickerModule
-> MatProgressSpinnerModule
-> MatCardModule
+> - BrowserAnimationsModule
+> - FormsModule
+> - MatButtonModule
+> - MatCheckboxModule
+> - MatListModule
+> - MatIconModule
+> - MatCommonModule
+> - MatFormFieldModule
+> - MatOptionModule
+> - MatSelectModule
+> - MatInputModule
+> - MatToolbarModule
+> - MatDatepickerModule
+> - MatProgressSpinnerModule
+> - MatCardModule
 
 
 - CSS 설정 추가 : `styles.css` 파일에 아래 내용 추가
