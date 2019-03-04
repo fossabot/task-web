@@ -1,4 +1,4 @@
-# PRE-STEP 환경 설정
+# 환경 설정
 - 버젼 확인
 ```bash
 node -v
