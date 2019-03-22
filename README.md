@@ -1,4 +1,6 @@
 # 환경 설정
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frevfactory%2Ftask-web.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Frevfactory%2Ftask-web?ref=badge_shield)
+
 - 버젼 확인
 ```bash
 node -v
@@ -746,3 +748,7 @@ export class TaskEditComponent implements OnInit {
 - https://www.youtube.com/channel/UCNweZR_LiXP326Ga6NEkIEA/videos
 - https://www.javaguides.net/2019/02/spring-boot-2-angular-7-crud-example-tutorial.html?m=1
 - https://www.djamware.com/post/5bca67d780aca7466989441f/angular-7-tutorial-building-crud-web-application#ch4
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frevfactory%2Ftask-web.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frevfactory%2Ftask-web?ref=badge_large)
